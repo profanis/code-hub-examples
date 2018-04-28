@@ -1,0 +1,8 @@
+.navigation {
+  height: 300px;
+  line-height: 300px;
+  width: 150px;
+  background-color: plum;
+  display: block;
+  text-align: center;
+}

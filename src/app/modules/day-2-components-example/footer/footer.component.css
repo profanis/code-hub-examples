@@ -1,0 +1,9 @@
+.footer {
+  background-color: lightslategray;
+  height: 150px;
+  width: 100%;
+  line-height: 150px;
+  color: #fff;
+  padding-left: 50px;
+  box-sizing: border-box;
+}

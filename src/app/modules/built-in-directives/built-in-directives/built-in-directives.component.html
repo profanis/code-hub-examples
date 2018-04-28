@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let item of items; let isFirst=first; let isLast=last;">
+    {{item}} 
+    <span *ngIf="isFirst"><strong>Is first</strong></span>
+    <span *ngIf="isLast"><strong>Is last</strong></span>
+  </li>
+</ul>

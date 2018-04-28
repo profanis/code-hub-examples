@@ -1,0 +1,26 @@
+<table>
+  <tr>
+    <td>
+      First name
+    </td>
+    <td>
+      <input type="text" [ngModel]="firstName" >
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Last name
+    </td>
+    <td>
+      <input type="text" [(ngModel)]="lastName">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+      <button type="button" [style.color]="'red'" (click)="submitForm()">Submit</button>
+    </td>
+  </tr>
+</table>

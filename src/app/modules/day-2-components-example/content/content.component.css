@@ -1,0 +1,9 @@
+.content {
+  background-color: palegreen;
+  height: 300px;
+  line-height: 300px;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
+}
