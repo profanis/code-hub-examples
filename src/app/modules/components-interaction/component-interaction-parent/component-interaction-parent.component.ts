@@ -7,8 +7,9 @@ import { Component, OnInit } from "@angular/core";
       Enter your name:
       <input type="text" [(ngModel)]="firstName">
 
-      <app-component-interaction-child [firstName]="firstName" (doSearch)="searchFromChild()">
+      <app-component-interaction-child #aname="child" [firstName]="firstName" (doSearch)="searchFromChild()">
       </app-component-interaction-child>
+      {{aname.lastName}}
   `,
   styleUrls: ["./component-interaction-parent.component.css"]
 })

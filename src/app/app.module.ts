@@ -1,3 +1,4 @@
+import { BasicFormModule } from './modules/basic-form/basic-form.module';
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
@@ -26,7 +27,8 @@ import { TeampltesDataBindingModule } from "./modules/teampltes-data-binding/tea
     BuiltInDirectivesModule,
     ComponentsInteractionModule,
     TeampltesDataBindingModule,
-    HttpServiceModule
+    HttpServiceModule,
+    BasicFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]
