@@ -1,18 +1,28 @@
-<form class="form" [formGroup]="myForm">
+<form class="form" [formGroup]="myForm" [class.was-validated]="myForm.invalid && myForm.dirty">
 
-  <div class="form-row">
+  <div class="form-row" [ngClass]="{'has-error': myForm.get('firstName').invalid && myForm.get('firstName').dirty}">
 
     <div class="col-md-4 mb-3">
       <label class="form-control-label">First Name</label>
       <input formControlName="firstName" class="form-control" type="text">
+    </div>
+    <div *ngIf="myForm.get('firstName').invalid && myForm.get('firstName').dirty" class="invalid-feedback">
+      Field is required
     </div>
 
     <div class="col-md-4 mb-3">
       <label class="form-control-label">Last Name</label>
       <input formControlName="lastName" class="form-control" type="text">
     </div>
+    <div *ngIf="myForm.get('lastName').invalid && myForm.get('lastName').dirty" class="invalid-feedback">
+      Field is required
+    </div>
 
   </div>
+  {{myForm.value | json}} <br />
+  valid = {{myForm.valid}}<br />
+  dirty = {{myForm.dirty}}<br />
+  touched = {{myForm.touched}}<br />
 
 
   <!-- <div class="form-group">
