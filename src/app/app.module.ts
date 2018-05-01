@@ -1,4 +1,4 @@
-import { BasicFormModule } from './modules/basic-form/basic-form.module';
+import { BasicFormModule } from "./modules/basic-form/basic-form.module";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
@@ -11,6 +11,7 @@ import { HttpServiceModule } from "./modules/http-service/http-service.module";
 import { LifecycleExampleModule } from "./modules/lifecycle-example/lifecycle-example.module";
 import { ServicesDiExampleModule } from "./modules/services-di-example/services-di-example.module";
 import { TeampltesDataBindingModule } from "./modules/teampltes-data-binding/teampltes-data-binding.module";
+import { ReactiveFormModule } from "./modules/reactive-form/reactive-form.module";
 
 
 
@@ -28,7 +29,8 @@ import { TeampltesDataBindingModule } from "./modules/teampltes-data-binding/tea
     ComponentsInteractionModule,
     TeampltesDataBindingModule,
     HttpServiceModule,
-    BasicFormModule
+    BasicFormModule,
+    ReactiveFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]

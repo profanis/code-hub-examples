@@ -1,0 +1,50 @@
+<form class="form" [formGroup]="myForm">
+
+  <div class="form-row">
+
+    <div class="col-md-4 mb-3">
+      <label class="form-control-label">First Name</label>
+      <input formControlName="firstName" class="form-control" type="text">
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label class="form-control-label">Last Name</label>
+      <input formControlName="lastName" class="form-control" type="text">
+    </div>
+
+  </div>
+
+
+  <!-- <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" #isExperienced="ngModel" type="checkbox" [(ngModel)]="model.isExperienced" name="isExperienced">
+      <label class="form-check-label">I have experience > 2 yrs </label>
+    </div>
+  </div> -->
+<!-- <div class="form-group">
+  <label class="custom-control-label">Angular Preference</label>
+  <br/>
+  <input type="radio" name="angular" value="1" required [(ngModel)]="model.angular" #angular="ngModel" id="angularjs">
+  <label for="angularjs">angularJs</label>
+  <br/>
+  <input type="radio" name="angular" value="2" required [(ngModel)]="model.angular" #angular2="ngModel" id="angular">
+  <label for="angular">angular</label>
+  <div *ngIf="angular.invalid && angular.dirty" class="invalid-feedback">
+    Field is required
+  </div>
+</div> -->
+  <!-- <div class="form-group" [ngClass]="{'has-error': !favouriteLanguageIsValid && favouriteLanguage.dirty}">
+    <label class="form-control-label">Favourite Language</label>
+    <br/>
+    <select #favouriteLanguage="ngModel" name="favouriteLanguage" [(ngModel)]="model.favouriteLanguage">
+      <option [ngValue]="null">Select</option>
+      <option *ngFor="let lang of programmingLanguages">
+        {{lang}}
+      </option>
+    </select>
+    <div *ngIf="!favouriteLanguageIsValid && favouriteLanguage.dirty" style="color:red">
+      Field is required
+    </div>
+  </div> -->
+  <!-- <button class="btn btn-primary" [disabled]="!form.valid">Submit</button> -->
+</form>
