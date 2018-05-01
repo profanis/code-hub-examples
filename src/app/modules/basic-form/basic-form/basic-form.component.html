@@ -1,11 +1,10 @@
-<form #form="ngForm" class="form" (submit)="formSubmit(form)" [class.was-validated]="form.invalid && form.dirty">
+<form #form="ngForm" class="form" [class.was-validated]="form.invalid && form.dirty">
 
   <div class="form-row" [ngClass]="{'has-error': firstName.invalid && firstName.dirty}">
 
     <div class="col-md-4 mb-3">
       <label class="form-control-label">First Name</label>
-      <input #firstName="ngModel" minlength="3" required class="form-control" type="text" name="firstName" [ngModel]="model.firstName"
-        (ngModelChange)="capitalize($event)">
+      <input #firstName="ngModel" class="form-control" type="text" name="firstName" [ngModel]="model.firstName">
       <div *ngIf="firstName.invalid && firstName.dirty" class="invalid-feedback">
         Field is required
       </div>
@@ -13,10 +12,7 @@
 
     <div class="col-md-4 mb-3">
       <label class="form-control-label">Last Name</label>
-      <input #lastName="ngModel" minlength="3" required class="form-control" type="text" name="lastName" [(ngModel)]="model.lastName">
-      <div *ngIf="lastName.invalid && lastName.dirty" class="invalid-feedback">
-        Field is required
-      </div>
+      <input class="form-control" type="text" name="lastName">
     </div>
 
   </div>
@@ -34,7 +30,7 @@
   <input type="radio" name="angular" value="1" required [(ngModel)]="model.angular" #angular="ngModel" id="angularjs">
   <label for="angularjs">angularJs</label>
   <br/>
-  <input type="radio" name="angular" value="2" required [(ngModel)]="model.angular" #angular="ngModel" id="angular">
+  <input type="radio" name="angular" value="2" required [(ngModel)]="model.angular" #angular2="ngModel" id="angular">
   <label for="angular">angular</label>
   <div *ngIf="angular.invalid && angular.dirty" class="invalid-feedback">
     Field is required
@@ -43,7 +39,7 @@
   <div class="form-group" [ngClass]="{'has-error': !favouriteLanguageIsValid && favouriteLanguage.dirty}">
     <label class="form-control-label">Favourite Language</label>
     <br/>
-    <select #favouriteLanguage="ngModel" name="favouriteLanguage" [(ngModel)]="model.favouriteLanguage" (change)="favLangIsValid($event)">
+    <select #favouriteLanguage="ngModel" name="favouriteLanguage" [(ngModel)]="model.favouriteLanguage">
       <option [ngValue]="null">Select</option>
       <option *ngFor="let lang of programmingLanguages">
         {{lang}}
