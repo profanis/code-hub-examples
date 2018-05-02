@@ -1,29 +1,32 @@
 <form class="form" [formGroup]="myForm" [class.was-validated]="myForm.invalid && myForm.dirty">
 
-  <div class="form-row" [ngClass]="{'has-error': myForm.get('firstName').invalid && myForm.get('firstName').dirty}">
+  <div class="form-row" [ngClass]="{'has-error': firstNameFormControlErrorMessage}">
 
     <div class="col-md-4 mb-3">
       <label class="form-control-label">First Name</label>
       <input formControlName="firstName" class="form-control" type="text">
-    </div>
-    <div *ngIf="myForm.get('firstName').invalid && myForm.get('firstName').dirty" class="invalid-feedback">
-      Field is required
+      <div *ngIf="myForm.get('firstName').invalid && myForm.get('firstName').dirty">
+        <div *ngIf="firstNameFormControlErrorMessage" class="text-danger">
+            {{firstNameFormControlErrorMessage}}
+        </div>
+      </div>
     </div>
 
     <div class="col-md-4 mb-3">
       <label class="form-control-label">Last Name</label>
       <input formControlName="lastName" class="form-control" type="text">
+      <div *ngIf="myForm.get('lastName').invalid && myForm.get('lastName').dirty" class="text-danger">
+        Field is required
+      </div>
     </div>
-    <div *ngIf="myForm.get('lastName').invalid && myForm.get('lastName').dirty" class="invalid-feedback">
-      Field is required
-    </div>
-
   </div>
   {{myForm.value | json}} <br />
-  valid = {{myForm.valid}}<br />
-  dirty = {{myForm.dirty}}<br />
+  form invalid = {{myForm.invalid}}<br />
+  form dirty = {{myForm.dirty}}<br />
   touched = {{myForm.touched}}<br />
-
+  touched = {{myForm.touched}}<br />
+  firstName invalid = {{myForm.get('firstName').invalid}} <br />
+  firstName dirty = {{myForm.get('firstName').dirty}} <br />
 
   <!-- <div class="form-group">
     <div class="form-check">
@@ -39,7 +42,7 @@
   <br/>
   <input type="radio" name="angular" value="2" required [(ngModel)]="model.angular" #angular2="ngModel" id="angular">
   <label for="angular">angular</label>
-  <div *ngIf="angular.invalid && angular.dirty" class="invalid-feedback">
+  <div *ngIf="angular.invalid && angular.dirty" class="text-danger">
     Field is required
   </div>
 </div> -->
