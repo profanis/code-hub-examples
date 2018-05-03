@@ -16,6 +16,10 @@ export class ReactiveFormComponent implements OnInit {
 
   firstNameFormControl = new FormControl("", [Validators.required, Validators.minLength(3)]);
   firstNameFormControlErrorMessage = "";
+  firstNameFormControlValidationMessages = {
+    required : "The first name is required",
+    minlength: "The minlength is 3 characters"
+  };
 
   ngOnInit() {
     this.myForm = new FormGroup({
@@ -25,8 +29,12 @@ export class ReactiveFormComponent implements OnInit {
 
     this.firstNameFormControl.valueChanges.subscribe( (value: string) => {
 
+      this.firstNameFormControlErrorMessage = "";
+
       if ((this.firstNameFormControl.touched || this.firstNameFormControl.dirty) && this.firstNameFormControl.errors) {
-        this.firstNameFormControlErrorMessage = "error";
+        this.firstNameFormControlErrorMessage =
+        Object.keys(this.firstNameFormControl.errors)
+        .map(c => this.firstNameFormControlValidationMessages[c]).join(" ");
       }
     });
   }
