@@ -5,19 +5,11 @@
     <div class="col-md-4 mb-3">
       <label class="form-control-label">First Name</label>
       <input formControlName="firstName" class="form-control" type="text">
-      <div *ngIf="myForm.get('firstName').invalid && myForm.get('firstName').dirty">
-        <div *ngIf="firstNameFormControlErrorMessage" class="text-danger">
-            {{firstNameFormControlErrorMessage}}
-        </div>
-      </div>
     </div>
 
     <div class="col-md-4 mb-3">
       <label class="form-control-label">Last Name</label>
       <input formControlName="lastName" class="form-control" type="text">
-      <div *ngIf="myForm.get('lastName').invalid && myForm.get('lastName').dirty" class="text-danger">
-        Field is required
-      </div>
     </div>
   </div>
 
@@ -27,18 +19,18 @@
       <label class="form-check-label">I have experience > 2 yrs </label>
     </div>
   </div>
-<div class="form-group">
-  <label class="custom-control-label">Angular Preference</label>
-  <br/>
-  <input type="radio" formControlName="angular" value="1" id="angularjs">
-  <label for="angularjs">angularJs</label>
-  <br/>
-  <input type="radio" formControlName="angular" value="2" id="angular">
-  <label for="angular">angular</label>
-  <div *ngIf="myForm.get('angular').invalid && myForm.get('angular').dirty" class="text-danger">
-    Field is required
+  <div class="form-group">
+    <label class="custom-control-label">Angular Preference</label>
+    <br/>
+    <input type="radio" formControlName="angular" value="1" id="angularjs">
+    <label for="angularjs">angularJs</label>
+    <br/>
+    <input type="radio" formControlName="angular" value="2" id="angular">
+    <label for="angular">angular</label>
+    <div *ngIf="myForm.get('angular').invalid && myForm.get('angular').dirty" class="text-danger">
+      Field is required
+    </div>
   </div>
-</div>
 
   <div class="form-group" [ngClass]="{'has-error': myForm.get('favouriteLanguage').invalid && myForm.get('favouriteLanguage').dirty}">
     <label class="form-control-label">Favourite Language</label>
@@ -51,16 +43,6 @@
     </select>
     <div *ngIf="myForm.get('favouriteLanguage').invalid && myForm.get('favouriteLanguage').dirty" class="text-danger">
       Field is required
-    </div>
-  </div>
-
-  <div class="form-row">
-    <div class="col-md-4 mb-3">
-      <label class="form-control-label">JS Version</label>
-      <input formControlName="jsversion" class="form-control" type="text">
-      <div *ngIf="myForm.get('jsversion').invalid && myForm.get('jsversion').dirty" class="text-danger">
-        Field is required
-      </div>
     </div>
   </div>
   <button class="btn btn-primary" [disabled]="!myForm.valid">Submit</button>

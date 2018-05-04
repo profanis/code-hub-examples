@@ -15,7 +15,7 @@ export class ReactiveFormComponent implements OnInit {
 
   constructor() { }
 
-  firstNameFormControl = new FormControl("", [Validators.required, Validators.minLength(3)]);
+  firstNameFormControl = new FormControl();
   firstNameFormControlErrorMessage = "";
   firstNameFormControlValidationMessages = {
     required : "The first name is required",
@@ -25,11 +25,10 @@ export class ReactiveFormComponent implements OnInit {
   ngOnInit() {
     this.myForm = new FormGroup({
       firstName: this.firstNameFormControl,
-      lastName: new FormControl("", Validators.required),
-      isExperienced: new FormControl("", Validators.required),
-      angular: new FormControl("", Validators.required),
-      favouriteLanguage: new FormControl("", Validators.required),
-      jsversion: new FormControl()
+      lastName: new FormControl(),
+      isExperienced: new FormControl(),
+      angular: new FormControl(),
+      favouriteLanguage: new FormControl()
     });
 
     this.firstNameFormControl.valueChanges.subscribe( (value: string) => {
@@ -41,17 +40,6 @@ export class ReactiveFormComponent implements OnInit {
         Object.keys(this.firstNameFormControl.errors)
         .map(c => this.firstNameFormControlValidationMessages[c]).join(" ");
       }
-    });
-
-    this.myForm.get("favouriteLanguage").valueChanges.subscribe(value => {
-      const jsVersionFormControl = this.myForm.get("jsversion");
-
-      if (value === "JS") {
-        jsVersionFormControl.setValidators(Validators.required);
-      } else {
-        jsVersionFormControl.clearValidators();
-      }
-      jsVersionFormControl.updateValueAndValidity();
     });
   }
 
