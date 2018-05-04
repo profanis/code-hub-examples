@@ -1,4 +1,4 @@
-<form class="form" [formGroup]="myForm" [class.was-validated]="myForm.invalid && myForm.dirty">
+<form class="form" (submit)="submit(myForm)" [formGroup]="myForm" [class.was-validated]="myForm.invalid && myForm.dirty">
 
   <div class="form-row" [ngClass]="{'has-error': firstNameFormControlErrorMessage}">
 

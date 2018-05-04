@@ -55,4 +55,9 @@ export class ReactiveFormComponent implements OnInit {
     });
   }
 
+
+  submit({value}: {value}) {
+    console.log(value);
+  }
+
 }
