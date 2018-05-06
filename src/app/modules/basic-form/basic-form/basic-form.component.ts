@@ -21,6 +21,10 @@ export class BasicFormComponent implements OnInit {
     this.model.favouriteLanguage = null;
   }
 
+  capitalize(value: string) {
+    this.model.firstName = value.toUpperCase();
+  }
+
   favLangIsValid(event) {
     this.favouriteLanguageIsValid = !(this.model.favouriteLanguage === null);
   }
