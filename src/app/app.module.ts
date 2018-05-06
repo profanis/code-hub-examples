@@ -1,3 +1,4 @@
+import { RouterModule, Routes } from '@angular/router';
 import { BasicFormModule } from "./modules/basic-form/basic-form.module";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
@@ -13,7 +14,9 @@ import { ServicesDiExampleModule } from "./modules/services-di-example/services-
 import { TeampltesDataBindingModule } from "./modules/teampltes-data-binding/teampltes-data-binding.module";
 import { ReactiveFormModule } from "./modules/reactive-form/reactive-form.module";
 
-
+const appRoutes: Routes = [
+  { path: "",  redirectTo: "/basic-form", pathMatch: "full" }
+];
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { ReactiveFormModule } from "./modules/reactive-form/reactive-form.module
     TeampltesDataBindingModule,
     HttpServiceModule,
     BasicFormModule,
-    ReactiveFormModule
+    ReactiveFormModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
