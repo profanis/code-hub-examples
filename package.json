@@ -9,6 +9,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start-production": "ng serve --prod",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",

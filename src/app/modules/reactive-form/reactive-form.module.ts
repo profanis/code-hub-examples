@@ -1,17 +1,20 @@
-import { ReactiveFormRoutingModule } from './reactive-form.routing.module';
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { RouterModule, Routes } from "@angular/router";
+
+import { SharedModule } from "../../shared/shared.module";
 import { ReactiveFormComponent } from "./reactive-form/reactive-form.component";
-import { ReactiveFormsModule } from "@angular/forms";
+
+const routes: Routes = [
+  {path: "reactive-form", component: ReactiveFormComponent}
+];
 
 
 @NgModule({
   imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    ReactiveFormRoutingModule
+    SharedModule,
+    RouterModule.forChild(routes)
   ],
   declarations: [ReactiveFormComponent],
-  exports: [ReactiveFormComponent]
+  exports: []
 })
-export class ReactiveFormModule { }
+export class MyReactiveFormModule { }

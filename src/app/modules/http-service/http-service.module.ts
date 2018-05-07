@@ -1,16 +1,21 @@
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { RouterModule, Routes } from "@angular/router";
+
+import { SharedModule } from "./../../shared/shared.module";
 import { BugReportSystemService } from "./bug-report-system.service";
 import { HttpServiceComponent } from "./http-service/http-service.component";
-import { HttpClientModule } from "@angular/common/http";
+
+const routes: Routes = [
+  {path: "basic-http-service", component: HttpServiceComponent}
+];
 
 @NgModule({
   imports: [
-    CommonModule,
-    HttpClientModule
+    SharedModule,
+    RouterModule.forChild(routes)
   ],
   declarations: [HttpServiceComponent],
   providers: [BugReportSystemService],
-  exports: [HttpServiceComponent]
+  exports: [RouterModule]
 })
 export class HttpServiceModule { }
