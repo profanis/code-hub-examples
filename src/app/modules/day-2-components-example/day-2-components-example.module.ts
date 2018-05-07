@@ -1,14 +1,21 @@
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { HeaderComponent } from "./header/header.component";
-import { NavigationComponent } from "./navigation/navigation.component";
+
+import { SharedModule } from "./../../shared/shared.module";
 import { ContentComponent } from "./content/content.component";
 import { FooterComponent } from "./footer/footer.component";
+import { HeaderComponent } from "./header/header.component";
+import { NavigationComponent } from "./navigation/navigation.component";
 import { WrapperComponent } from "./wrapper/wrapper.component";
+import { RouterModule, Routes } from "@angular/router";
+
+const routes: Routes = [
+  {path: "components-example", component: WrapperComponent}
+];
 
 @NgModule({
   imports: [
-    CommonModule
+    SharedModule,
+    RouterModule.forChild(routes)
   ],
   declarations: [
     HeaderComponent,
@@ -17,6 +24,6 @@ import { WrapperComponent } from "./wrapper/wrapper.component";
     FooterComponent,
     WrapperComponent
   ],
-  exports: [WrapperComponent]
+  exports: [RouterModule]
 })
 export class Day2ComponentsExampleModule { }

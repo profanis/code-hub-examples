@@ -1,15 +1,19 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { BasicFormComponent } from './basic-form/basic-form.component';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 
+import { BasicFormComponent } from "./basic-form/basic-form.component";
+import { SharedModule } from "../../shared/shared.module";
+
+const routes: Routes = [
+  {path: "basic-form", component: BasicFormComponent}
+];
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule
+    SharedModule,
+    RouterModule.forChild(routes)
   ],
   declarations: [BasicFormComponent],
-  exports: [BasicFormComponent]
+  exports: [RouterModule]
 })
 export class BasicFormModule {
 

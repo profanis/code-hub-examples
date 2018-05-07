@@ -1,14 +1,20 @@
-import { FormsModule } from "@angular/forms";
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+
+import { SharedModule } from "./../../shared/shared.module";
 import { TemplatesDataBindingComponent } from "./templates-data-binding/templates-data-binding.component";
+import { RouterModule, Routes } from "@angular/router";
+
+const routes: Routes = [
+  {path: "templates-binding", component: TemplatesDataBindingComponent}
+];
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule
+    SharedModule,
+    RouterModule.forChild(routes)
+
   ],
   declarations: [TemplatesDataBindingComponent],
-  exports: [TemplatesDataBindingComponent]
+  exports: [RouterModule]
 })
 export class TeampltesDataBindingModule { }

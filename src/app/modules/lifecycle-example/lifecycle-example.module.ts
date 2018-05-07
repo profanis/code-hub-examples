@@ -1,15 +1,19 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { LifeCycleComponent } from './life-cycle/life-cycle.component';
-import { FormsModule } from '@angular/forms';
-import { LifeCycleChildComponent } from './life-cycle-child/life-cycle-child.component';
+import { NgModule } from "@angular/core";
 
+import { SharedModule } from "../../shared/shared.module";
+import { LifeCycleChildComponent } from "./life-cycle-child/life-cycle-child.component";
+import { LifeCycleComponent } from "./life-cycle/life-cycle.component";
+import { RouterModule, Routes } from "@angular/router";
+
+const routes: Routes = [
+  {path: "life-cycle-example", component: LifeCycleComponent}
+];
 @NgModule({
   imports: [
-    FormsModule,
-    CommonModule
+    SharedModule,
+    RouterModule.forChild(routes)
   ],
   declarations: [LifeCycleComponent, LifeCycleChildComponent],
-  exports: [LifeCycleComponent]
+  exports: [RouterModule]
 })
 export class LifecycleExampleModule { }
