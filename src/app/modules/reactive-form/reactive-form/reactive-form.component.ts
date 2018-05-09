@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators, AbstractControl } from "@angular/forms";
 import { Customer } from "../../basic-form/basic-form/cusomer.model";
@@ -13,7 +14,9 @@ export class ReactiveFormComponent implements OnInit {
   customer = new Customer();
   programmingLanguages = ["TS", "JS", "C#"];
 
-  constructor() { }
+  constructor(private router: Router) {
+    this.router.navigate(["/basic-form"], { queryParams: { key: "value"} });
+   }
 
   firstNameFormControl = new FormControl();
   firstNameFormControlErrorMessage = "";
@@ -23,6 +26,7 @@ export class ReactiveFormComponent implements OnInit {
   };
 
   ngOnInit() {
+
     this.myForm = new FormGroup({
       firstName: this.firstNameFormControl,
       lastName: new FormControl(),

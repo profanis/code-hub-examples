@@ -5,7 +5,8 @@ import { BasicFormComponent } from "./basic-form/basic-form.component";
 import { SharedModule } from "../../shared/shared.module";
 
 const routes: Routes = [
-  {path: "basic-form", component: BasicFormComponent}
+  {path: "basic-form", component: BasicFormComponent},
+  {path: "basic-form/:id", component: BasicFormComponent}
 ];
 @NgModule({
   imports: [

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
 
 import { Customer } from "./cusomer.model";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-basic-form",
@@ -13,7 +14,13 @@ export class BasicFormComponent implements OnInit {
   model: Customer;
   favouriteLanguageIsValid: boolean;
   programmingLanguages = ["TS", "JS", "C#"];
-  constructor() { }
+
+  constructor(private route: ActivatedRoute) {
+    console.log("Snapshot is: ", this.route.snapshot.params["id"]);
+    this.route.params.subscribe(params => console.log("With subscription: ", params));
+    // console.log("Snapshot is: ", this.route.snapshot.queryParamMap);
+    // this.route.queryParams.subscribe(params => console.log("With subscription: ", params));
+  }
 
   ngOnInit() {
     this.model = new Customer();
