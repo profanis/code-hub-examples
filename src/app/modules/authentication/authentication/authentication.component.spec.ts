@@ -2,47 +2,37 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { AuthenticationComponent } from "./authentication.component";
 import { AuthenticationService } from "../authentication.service";
-
-export class MockedAuthenticationService {
-
-  constructor() { }
-
-  isLoggedIn() {
-    return true;
-  }
-
-}
+import { DebugElement } from "@angular/core";
+import { By } from "@angular/platform-browser";
 
 fdescribe("AuthenticationComponent", () => {
   let component: AuthenticationComponent;
-  let service: MockedAuthenticationService;
-
-
-  // let fixture: ComponentFixture<AuthenticationComponent>;
-
-  // beforeEach(async(() => {
-  //   TestBed.configureTestingModule({
-  //     declarations: [ AuthenticationComponent ]
-  //   })
-  //   .compileComponents();
-  // }));
+  let service: AuthenticationService;
+  let fixture: ComponentFixture<AuthenticationComponent>;
+  let el: DebugElement;
 
   beforeEach(() => {
-    service = new MockedAuthenticationService();
-    component = new AuthenticationComponent(service);
+    TestBed.configureTestingModule({
+      declarations: [ AuthenticationComponent ],
+      providers: [AuthenticationService]
+    });
+
+    fixture = TestBed.createComponent(AuthenticationComponent);
+    service = TestBed.get(AuthenticationService);
+    el = fixture.debugElement.query(By.css("div"));
+    component = fixture.componentInstance;
   });
 
-  // beforeEach(() => {
-  //   fixture = TestBed.createComponent(AuthenticationComponent);
-  //   component = fixture.componentInstance;
-  //   fixture.detectChanges();
-  // });
 
-  it("should create", () => {
-    expect(component).toBeTruthy();
-  });
-
-  it("returns false when user requires to login", () => {
+  it("returns 'true' when user is logged in", () => {
+    spyOn(service, "isLoggedIn").and.returnValue(true);
     expect(component.isLoggedIn()).toBeTruthy();
   });
+
+  it("has the correct message if the user is logged in or not", () => {
+    expect(el.nativeElement.textContent.trim()).toBe("");
+    fixture.detectChanges();
+    expect(el.nativeElement.textContent.trim()).toBe("Is logged in");
+  });
+
 });
