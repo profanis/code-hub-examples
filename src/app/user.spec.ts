@@ -1,5 +1,5 @@
 import { UserService } from "./user";
-fdescribe("User tests", () => {
+describe("User tests", () => {
 
   let userModel: UserService;
 
