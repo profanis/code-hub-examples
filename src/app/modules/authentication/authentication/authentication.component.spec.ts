@@ -5,7 +5,7 @@ import { AuthenticationService } from "../authentication.service";
 import { DebugElement } from "@angular/core";
 import { By } from "@angular/platform-browser";
 
-fdescribe("AuthenticationComponent", () => {
+describe("AuthenticationComponent", () => {
   let component: AuthenticationComponent;
   let service: AuthenticationService;
   let fixture: ComponentFixture<AuthenticationComponent>;
@@ -31,6 +31,8 @@ fdescribe("AuthenticationComponent", () => {
 
   it("has the correct message if the user is logged in or not", () => {
     expect(el.nativeElement.textContent.trim()).toBe("");
+
+    spyOn(service, "isLoggedIn").and.returnValue(true);
     fixture.detectChanges();
     expect(el.nativeElement.textContent.trim()).toBe("Is logged in");
   });
