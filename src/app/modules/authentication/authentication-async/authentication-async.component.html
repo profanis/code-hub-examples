@@ -3,29 +3,22 @@
   <span *ngIf="!userisLoggedIn">Is NOT logged in</span>
 </div>
 
-<table [formGroup]="myForm" (submit)="submitForm(myForm)">
-  <tr>
-    <td>
-      Username
-    </td>
-    <td>
-      <input type="text" formControlName="username" id="username">
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Password
-    </td>
-    <td>
-      <input type="text"  formControlName="password" id="password">
-    </td>
-  </tr>
-  <tr>
-    <td>
-      &nbsp;
-    </td>
-    <td>
-      <button type="submit">Submit</button>
-    </td>
-  </tr>
-</table>
+<form [formGroup]="myForm" (submit)="submitForm(myForm)">
+  <p>
+    First Name  <br/>
+    <input type="text" formControlName="firstName">
+  </p>
+  <p>
+    Last Name  <br/>
+    <input type="text" formControlName="lastName">
+  </p>
+  <p>
+    Email  <br/>
+    <input type="text" formControlName="email">
+  </p>
+  <p>
+    Password <br/>
+    <input type="text"  formControlName="password">
+  </p>
+  <button>Submit</button>
+</form>

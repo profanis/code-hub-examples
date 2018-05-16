@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { AuthenticationService } from "../authentication.service";
-import { FormGroup, FormControl } from "@angular/forms";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { UserModel } from "./user.model";
 
 @Component({
   selector: "app-authentication-async",
@@ -11,7 +12,9 @@ export class AuthenticationAsyncComponent implements OnInit {
 
   userisLoggedIn = true;
   myForm: FormGroup;
-  @Output() submit = new EventEmitter<any>();
+  @Output() submit = new EventEmitter<UserModel>();
+  emailPattern =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   constructor(private authenticationService: AuthenticationService) { }
 
@@ -25,14 +28,18 @@ export class AuthenticationAsyncComponent implements OnInit {
 
   buildForm() {
     this.myForm = new FormGroup({
-      username: new FormControl(),
-      password: new FormControl()
+      firstName: new FormControl("", [Validators.required, Validators.minLength(3)]),
+      lastName: new FormControl("", [Validators.required, Validators.minLength(3)]),
+      email: new FormControl("", [Validators.required, Validators.pattern(this.emailPattern)]),
+      password: new FormControl("", [Validators.required, Validators.minLength(3), Validators.minLength(10)])
     });
   }
 
   submitForm(form: FormGroup) {
     this.submit.emit({
-      username: form.controls["username"].value,
+      firstName: form.controls["firstName"].value,
+      lastName: form.controls["lastName"].value,
+      email: form.controls["email"].value,
       password: form.controls["password"].value
     });
   }

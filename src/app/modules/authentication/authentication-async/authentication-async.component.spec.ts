@@ -8,7 +8,7 @@ import { Observable } from "rxjs/Observable";
 import { AuthenticationService } from "../authentication.service";
 import { AuthenticationAsyncComponent } from "./authentication-async.component";
 import { ReactiveFormsModule } from "@angular/forms";
-
+import { UserModel } from "./user.model";
 
 export class MockAuthenticationService extends AuthenticationService {
 
@@ -24,11 +24,6 @@ fdescribe("AuthenticationAsyncComponent", () => {
   let fixture: ComponentFixture<AuthenticationAsyncComponent>;
   let el: DebugElement;
 
-  let usernameEl: DebugElement;
-  let passwordEl: DebugElement;
-  let submitEl: DebugElement;
-
-
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ AuthenticationAsyncComponent ],
@@ -43,9 +38,6 @@ fdescribe("AuthenticationAsyncComponent", () => {
     el = fixture.debugElement.query(By.css("div"));
     component = fixture.componentInstance;
 
-    submitEl = fixture.debugElement.query(By.css("button"));
-    usernameEl = fixture.debugElement.query(By.css("#username"));
-    passwordEl = fixture.debugElement.query(By.css("#password"));
   });
 
   it("has the correct message if the user is logged in or not", fakeAsync(() => {
@@ -60,17 +52,48 @@ fdescribe("AuthenticationAsyncComponent", () => {
 
   }));
 
+  it("form should be invalid", () => {
+    component.buildForm();
+    expect(component.myForm.valid).toBeFalsy();
+  });
 
-  it("has the correct message if the user is logged in or not", fakeAsync(() => {
-    spyOn(service, "isLoggedInAsync").and.returnValue(Promise.resolve(false));
-    component.ngOnInit();
+  it("validates the form fields", () => {
+    let user: UserModel;
 
-    tick();
-    // tick(1000);
+    component.buildForm();
 
-    fixture.detectChanges();
-    expect(el.nativeElement.textContent.trim()).toBe("Is NOT logged in");
+    const firstNameControl = component.myForm.get("firstName");
+    const lastNameControl = component.myForm.get("lastName");
+    const emailControl = component.myForm.get("email");
+    const passwordControl = component.myForm.get("password");
 
-  }));
+    expect(component.myForm.valid).toBeFalsy();
+
+    firstNameControl.setValue("Fanis");
+    expect(firstNameControl.valid).toBeTruthy();
+
+    lastNameControl.setValue("Prodromou");
+    expect(lastNameControl.valid).toBeTruthy();
+
+    emailControl.setValue("prodromouf@gmail.com");
+    expect(emailControl.valid).toBeTruthy();
+
+    passwordControl.setValue("secretpassword");
+    expect(passwordControl.valid).toBeTruthy();
+
+
+    expect(component.myForm.valid).toBeTruthy();
+
+    component.submit.subscribe((userModel: UserModel) => {
+      user = userModel;
+    });
+    component.submitForm(component.myForm);
+
+    expect(user.firstName).toBe("Fanis");
+    expect(user.lastName).toBe("Prodromou");
+    expect(user.email).toBe("prodromouf@gmail.com");
+    expect(user.password).toBe("secretpassword");
+
+  });
 
 });
