@@ -48,6 +48,17 @@ fdescribe("AuthenticationAsyncComponent", () => {
   });
 
   it("validates the form fields", () => {
+    let user: UserModel;
+
+    component.buildForm();
+
+    const firstNameControl = component.myForm.get("firstName");
+    const lastNameControl = component.myForm.get("lastName");
+    const emailControl = component.myForm.get("email");
+    const passwordControl = component.myForm.get("password");
+
+    expect(component.myForm.valid).toBeFalsy();
+
 
 
   });
