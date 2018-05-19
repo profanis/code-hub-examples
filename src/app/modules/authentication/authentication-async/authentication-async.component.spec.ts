@@ -40,17 +40,7 @@ fdescribe("AuthenticationAsyncComponent", () => {
 
   });
 
-  it("has the correct message if the user is logged in or not", fakeAsync(() => {
-    spyOn(service, "isLoggedInAsync").and.returnValue(Promise.resolve(false));
-    component.ngOnInit();
 
-    tick();
-    // tick(1000);
-
-    fixture.detectChanges();
-    expect(el.nativeElement.textContent.trim()).toBe("Is NOT logged in");
-
-  }));
 
   it("form should be invalid", () => {
     component.buildForm();
@@ -58,41 +48,7 @@ fdescribe("AuthenticationAsyncComponent", () => {
   });
 
   it("validates the form fields", () => {
-    let user: UserModel;
 
-    component.buildForm();
-
-    const firstNameControl = component.myForm.get("firstName");
-    const lastNameControl = component.myForm.get("lastName");
-    const emailControl = component.myForm.get("email");
-    const passwordControl = component.myForm.get("password");
-
-    expect(component.myForm.valid).toBeFalsy();
-
-    firstNameControl.setValue("Fanis");
-    expect(firstNameControl.valid).toBeTruthy();
-
-    lastNameControl.setValue("Prodromou");
-    expect(lastNameControl.valid).toBeTruthy();
-
-    emailControl.setValue("prodromouf@gmail.com");
-    expect(emailControl.valid).toBeTruthy();
-
-    passwordControl.setValue("secretpassword");
-    expect(passwordControl.valid).toBeTruthy();
-
-
-    expect(component.myForm.valid).toBeTruthy();
-
-    component.submit.subscribe((userModel: UserModel) => {
-      user = userModel;
-    });
-    component.submitForm(component.myForm);
-
-    expect(user.firstName).toBe("Fanis");
-    expect(user.lastName).toBe("Prodromou");
-    expect(user.email).toBe("prodromouf@gmail.com");
-    expect(user.password).toBe("secretpassword");
 
   });
 
