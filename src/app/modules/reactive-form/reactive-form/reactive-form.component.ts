@@ -15,7 +15,7 @@ export class ReactiveFormComponent implements OnInit {
   programmingLanguages = ["TS", "JS", "C#"];
 
   constructor(private router: Router) {
-    this.router.navigate(["/basic-form"], { queryParams: { key: "value"} });
+    // this.router.navigate(["/basic-form"], { queryParams: { key: "value"} });
    }
 
   firstNameFormControl = new FormControl();
@@ -36,6 +36,7 @@ export class ReactiveFormComponent implements OnInit {
     });
 
     this.firstNameFormControl.valueChanges.subscribe( (value: string) => {
+      console.log(value);
 
       this.firstNameFormControlErrorMessage = "";
 
