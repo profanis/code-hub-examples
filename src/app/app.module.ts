@@ -14,6 +14,7 @@ import { LifecycleExampleModule } from "./modules/lifecycle-example/lifecycle-ex
 import { MyReactiveFormModule } from "./modules/reactive-form/reactive-form.module";
 import { ServicesDiExampleModule } from "./modules/services-di-example/services-di-example.module";
 import { TeampltesDataBindingModule } from "./modules/teampltes-data-binding/teampltes-data-binding.module";
+import { CssEncapsulationModule } from "./modules/css-encapsulation/css-encapsulation.module";
 
 const appRoutes: Routes = [
    { path: "",  redirectTo: "/dashboard", pathMatch: "full" },
@@ -39,7 +40,8 @@ export function applicationModules(): any[] {
     HttpServiceModule,
     LifecycleExampleModule,
     ServicesDiExampleModule,
-    TeampltesDataBindingModule
+    TeampltesDataBindingModule,
+    CssEncapsulationModule
   ];
 }
 @NgModule({
