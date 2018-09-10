@@ -1,8 +1,9 @@
-import { CommonModule } from "@angular/common";
-import { HttpClientModule } from "@angular/common/http";
-import { NgModule } from "@angular/core";
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 
-import { NavBarModule } from "./nav-bar/nav-bar.module";
+import { BasicCanLoadGuard } from './guards/basic-can-load.guard';
+import { NavBarModule } from './nav-bar/nav-bar.module';
 
 /**
  * Singleton Services and App level components
@@ -14,7 +15,10 @@ import { NavBarModule } from "./nav-bar/nav-bar.module";
     NavBarModule
   ],
   declarations: [],
-  exports: [NavBarModule]
+  exports: [NavBarModule],
+  providers: [
+    BasicCanLoadGuard
+  ]
 })
 export class CoreModule {
 
