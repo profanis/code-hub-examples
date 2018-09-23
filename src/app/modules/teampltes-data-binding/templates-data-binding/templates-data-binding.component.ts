@@ -1,18 +1,21 @@
 import { Component, OnInit } from "@angular/core";
+import { AdvancedDiService } from "../../advanced-di-example/advanced-di.service";
 
 @Component({
   selector: "app-templates-data-binding",
   templateUrl: "./templates-data-binding.component.html",
-  styleUrls: ["./templates-data-binding.component.css"]
+  styleUrls: ["./templates-data-binding.component.css"],
+  // providers: [AdvancedDiService]
 })
 export class TemplatesDataBindingComponent implements OnInit {
 
   firstName = "INITIAL VALUE";
   lastName: string;
 
-  constructor() { }
+  constructor(private advancedDiService: AdvancedDiService) { }
 
   ngOnInit() {
+    this.advancedDiService.foo;
   }
 
 
