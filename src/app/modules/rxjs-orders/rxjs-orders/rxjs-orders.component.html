@@ -1,0 +1,12 @@
+<ul>
+  <li *ngFor="let order of ($orders | async)">
+    {{order.user}}
+    <ul>
+      <ol>
+        <li *ngFor="let product of order.products">
+          {{product.name}} - {{product.price | currency}}
+        </li>
+      </ol>
+    </ul>
+  </li>
+</ul>

@@ -18,6 +18,7 @@ import { TeampltesDataBindingModule } from "./modules/teampltes-data-binding/tea
 import { BasicCanLoadGuard } from "./core/guards/basic-can-load.guard";
 import { AdvancedDiExampleModule } from "./modules/advanced-di-example/advanced-di-example.module";
 import { AdvancedDiService } from "./modules/advanced-di-example/advanced-di.service";
+import { RxjsOrdersModule } from './modules/rxjs-orders/rxjs-orders.module';
 
 const appRoutes: Routes = [
   { path: "",  redirectTo: "/dashboard", pathMatch: "full" },
@@ -54,7 +55,8 @@ export function applicationModules(): any[] {
     ServicesDiExampleModule,
     TeampltesDataBindingModule,
     AdvancedDiExampleModule,
-    RxjsTypeaheadModule
+    RxjsTypeaheadModule,
+    RxjsOrdersModule
   ];
 }
 @NgModule({
