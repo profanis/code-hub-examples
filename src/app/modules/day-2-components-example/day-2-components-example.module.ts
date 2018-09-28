@@ -24,6 +24,6 @@ const routes: Routes = [
     FooterComponent,
     WrapperComponent
   ],
-  exports: [RouterModule]
+  exports: [RouterModule, WrapperComponent]
 })
 export class Day2ComponentsExampleModule { }
