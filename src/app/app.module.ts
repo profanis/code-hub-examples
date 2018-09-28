@@ -15,6 +15,7 @@ import { Day2ComponentsExampleModule } from "./modules/day-2-components-example/
 import { HttpServiceModule } from "./modules/http-service/http-service.module";
 import { LifecycleExampleModule } from "./modules/lifecycle-example/lifecycle-example.module";
 import { MyReactiveFormModule } from "./modules/reactive-form/reactive-form.module";
+import { RxjsOrdersModule } from "./modules/rxjs-orders/rxjs-orders.module";
 import { RxjsTypeaheadModule } from "./modules/rxjs-typeahead/rxjs-typeahead.module";
 import { ServicesDiExampleModule } from "./modules/services-di-example/services-di-example.module";
 import { TeampltesDataBindingModule } from "./modules/teampltes-data-binding/teampltes-data-binding.module";
@@ -55,7 +56,8 @@ export function applicationModules(): any[] {
     TeampltesDataBindingModule,
     CssEncapsulationModule,
     AdvancedDiExampleModule,
-    RxjsTypeaheadModule
+    RxjsTypeaheadModule,
+    RxjsOrdersModule
   ];
 }
 @NgModule({
