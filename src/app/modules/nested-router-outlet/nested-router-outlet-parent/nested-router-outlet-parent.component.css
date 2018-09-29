@@ -1,0 +1,11 @@
+.basicRouterOutlet {
+  padding: 10px;
+  background-color: greenyellow;
+  border: 1px solid #ececec;
+}
+
+.advancedRouterOutlet {
+  padding: 10px;
+  background-color: red;
+  border: 1px solid #ececec;
+}

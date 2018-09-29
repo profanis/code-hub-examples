@@ -19,6 +19,7 @@ import { BasicCanLoadGuard } from "./core/guards/basic-can-load.guard";
 import { AdvancedDiExampleModule } from "./modules/advanced-di-example/advanced-di-example.module";
 import { AdvancedDiService } from "./modules/advanced-di-example/advanced-di.service";
 import { RxjsOrdersModule } from './modules/rxjs-orders/rxjs-orders.module';
+import { NestedRouterOutletModule } from './modules/nested-router-outlet/nested-router-outlet.module';
 
 const appRoutes: Routes = [
   { path: "",  redirectTo: "/dashboard", pathMatch: "full" },
@@ -56,7 +57,8 @@ export function applicationModules(): any[] {
     TeampltesDataBindingModule,
     AdvancedDiExampleModule,
     RxjsTypeaheadModule,
-    RxjsOrdersModule
+    RxjsOrdersModule,
+    NestedRouterOutletModule
   ];
 }
 @NgModule({
