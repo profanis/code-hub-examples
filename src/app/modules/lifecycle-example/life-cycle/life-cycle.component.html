@@ -1,3 +1,11 @@
+<p>
+  Content of parent component
+</p>
 <input type="text" [(ngModel)]="firstName">
 
-<app-life-cycle-child [lastName]="firstName"></app-life-cycle-child>
+<hr />
+<app-life-cycle-child [lastName]="firstName">
+  <h1 #parentToChild>
+    This is injected from parent
+  </h1>
+</app-life-cycle-child>
