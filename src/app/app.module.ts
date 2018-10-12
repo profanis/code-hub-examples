@@ -20,6 +20,8 @@ import { AdvancedDiExampleModule } from "./modules/advanced-di-example/advanced-
 import { AdvancedDiService } from "./modules/advanced-di-example/advanced-di.service";
 import { RxjsOrdersModule } from './modules/rxjs-orders/rxjs-orders.module';
 import { RxjsTransformOpModule } from './modules/rxjs-transform-op/rxjs-transform-op.module';
+import { NestedRouterOutletModule } from './modules/nested-router-outlet/nested-router-outlet.module';
+import { VewChildModule } from './modules/vew-child/vew-child.module';
 
 const appRoutes: Routes = [
   { path: "",  redirectTo: "/dashboard", pathMatch: "full" },
@@ -58,7 +60,9 @@ export function applicationModules(): any[] {
     AdvancedDiExampleModule,
     RxjsTypeaheadModule,
     RxjsOrdersModule,
-    RxjsTransformOpModule
+    RxjsTransformOpModule,
+    NestedRouterOutletModule,
+    VewChildModule
   ];
 }
 @NgModule({

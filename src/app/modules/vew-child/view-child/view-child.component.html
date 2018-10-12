@@ -1,0 +1,29 @@
+<h2>
+  Access an HTML element
+</h2>
+<input type="number" #numberElement >
+<hr />
+
+<h2>
+  Access a component instance
+</h2>
+<app-view-child-com></app-view-child-com>
+<button type="button" (click)="changeTheName()">Click me</button>
+<hr />
+
+<h2>
+  Access a component instance with template reference
+</h2>
+<app-view-child-com #view_child_com></app-view-child-com>
+
+
+<h2>
+  Access a native element
+</h2>
+<p #pElement>This is a native element</p>
+
+<h2>
+  Access a component's native element
+</h2>
+<app-view-child-com #view_child_com_el></app-view-child-com>
+
