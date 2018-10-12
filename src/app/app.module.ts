@@ -20,6 +20,7 @@ import { RxjsTypeaheadModule } from "./modules/rxjs-typeahead/rxjs-typeahead.mod
 import { ServicesDiExampleModule } from "./modules/services-di-example/services-di-example.module";
 import { TeampltesDataBindingModule } from "./modules/teampltes-data-binding/teampltes-data-binding.module";
 import { VewChildModule } from "./modules/vew-child/vew-child.module";
+import { RxjsTransformOpModule } from "./modules/rxjs-transform-op/rxjs-transform-op.module";
 
 const appRoutes: Routes = [
   { path: "",  redirectTo: "/dashboard", pathMatch: "full" },
@@ -59,7 +60,8 @@ export function applicationModules(): any[] {
     AdvancedDiExampleModule,
     RxjsTypeaheadModule,
     RxjsOrdersModule,
-    VewChildModule
+    VewChildModule,
+    RxjsTransformOpModule
   ];
 }
 @NgModule({
