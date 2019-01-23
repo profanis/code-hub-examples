@@ -21,6 +21,7 @@ import { ServicesDiExampleModule } from "./modules/services-di-example/services-
 import { TeampltesDataBindingModule } from "./modules/teampltes-data-binding/teampltes-data-binding.module";
 import { VewChildModule } from "./modules/vew-child/vew-child.module";
 import { RxjsTransformOpModule } from "./modules/rxjs-transform-op/rxjs-transform-op.module";
+import { ScssExampleModule } from "./modules/scss-example/scss-example.module";
 
 const appRoutes: Routes = [
   { path: "",  redirectTo: "/dashboard", pathMatch: "full" },
@@ -61,7 +62,8 @@ export function applicationModules(): any[] {
     RxjsTypeaheadModule,
     RxjsOrdersModule,
     VewChildModule,
-    RxjsTransformOpModule
+    RxjsTransformOpModule,
+    ScssExampleModule
   ];
 }
 @NgModule({
