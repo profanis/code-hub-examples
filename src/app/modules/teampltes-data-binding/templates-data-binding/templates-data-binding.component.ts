@@ -4,7 +4,7 @@ import { AdvancedDiService } from "../../advanced-di-example/advanced-di.service
 @Component({
   selector: "app-templates-data-binding",
   templateUrl: "./templates-data-binding.component.html",
-  styleUrls: ["./templates-data-binding.component.css"],
+  styleUrls: ["./templates-data-binding.component.scss"],
   // providers: [AdvancedDiService]
 })
 export class TemplatesDataBindingComponent implements OnInit {

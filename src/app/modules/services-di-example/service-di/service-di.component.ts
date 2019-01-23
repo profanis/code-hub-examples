@@ -4,7 +4,7 @@ import { ServicesDiService } from "../services-di.service";
 @Component({
   selector: "app-service-di",
   templateUrl: "./service-di.component.html",
-  styleUrls: ["./service-di.component.css"]
+  styleUrls: ["./service-di.component.scss"]
 })
 export class ServiceDiComponent implements OnInit {
 

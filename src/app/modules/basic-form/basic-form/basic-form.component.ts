@@ -7,7 +7,7 @@ import { ActivatedRoute } from "@angular/router";
 @Component({
   selector: "app-basic-form",
   templateUrl: "./basic-form.component.html",
-  styleUrls: ["./basic-form.component.css"]
+  styleUrls: ["./basic-form.component.scss"]
 })
 export class BasicFormComponent implements OnInit {
 

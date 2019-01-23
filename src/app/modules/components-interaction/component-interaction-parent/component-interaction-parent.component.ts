@@ -11,7 +11,7 @@ import { Component, OnInit } from "@angular/core";
       </app-component-interaction-child>
       {{aname.lastName}}
   `,
-  styleUrls: ["./component-interaction-parent.component.css"]
+  styleUrls: ["./component-interaction-parent.component.scss"]
 })
 export class ComponentInteractionParentComponent implements OnInit {
 

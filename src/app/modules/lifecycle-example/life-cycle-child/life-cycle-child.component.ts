@@ -4,7 +4,7 @@ import { OnChanges, SimpleChanges, Component, OnInit, Input } from '@angular/cor
 @Component({
   selector: 'app-life-cycle-child',
   templateUrl: './life-cycle-child.component.html',
-  styleUrls: ['./life-cycle-child.component.css']
+  styleUrls: ['./life-cycle-child.component.scss']
 })
 export class LifeCycleChildComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterViewInit {
 

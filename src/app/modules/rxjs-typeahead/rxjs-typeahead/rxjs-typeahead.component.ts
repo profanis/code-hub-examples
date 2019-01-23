@@ -15,7 +15,7 @@ import { CountriesService } from '../counties.service';
 @Component({
   selector: 'app-rxjs-typeahead',
   templateUrl: './rxjs-typeahead.component.html',
-  styleUrls: ['./rxjs-typeahead.component.css'],
+  styleUrls: ['./rxjs-typeahead.component.scss'],
   providers: [CountriesService]
 })
 export class RxjsTypeaheadComponent implements AfterViewInit {

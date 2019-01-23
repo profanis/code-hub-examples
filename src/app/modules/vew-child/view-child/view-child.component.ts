@@ -4,7 +4,7 @@ import { ViewChildComComponent } from '../view-child-com/view-child-com.componen
 @Component({
   selector: 'app-view-child',
   templateUrl: './view-child.component.html',
-  styleUrls: ['./view-child.component.css']
+  styleUrls: ['./view-child.component.scss']
 })
 export class ViewChildComponent implements AfterViewInit {
 

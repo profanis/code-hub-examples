@@ -12,7 +12,7 @@ import { OutputType } from "@angular/core/src/view";
         <button type="button" (click)="search()">Search</button>
       </div>
   `,
-  styleUrls: ["./component-interaction-child.component.css"],
+  styleUrls: ["./component-interaction-child.component.scss"],
   exportAs: "child"
 })
 export class ComponentInteractionChildComponent implements OnInit {

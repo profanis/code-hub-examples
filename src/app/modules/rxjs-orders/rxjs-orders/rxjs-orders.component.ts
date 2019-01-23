@@ -7,7 +7,7 @@ import { RxjsOrdersService } from "../rxjs-orders.service";
 @Component({
   selector: "app-rxjs-orders",
   templateUrl: "./rxjs-orders.component.html",
-  styleUrls: ["./rxjs-orders.component.css"]
+  styleUrls: ["./rxjs-orders.component.scss"]
 })
 export class RxjsOrdersComponent implements OnInit {
   $orders: Observable<OrderModel[]>;

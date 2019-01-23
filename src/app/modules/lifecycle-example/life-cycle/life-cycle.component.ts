@@ -3,7 +3,7 @@ import { Component, OnInit, AfterContentInit, OnChanges, SimpleChanges, DoCheck,
 @Component({
   selector: "app-life-cycle",
   templateUrl: "./life-cycle.component.html",
-  styleUrls: ["./life-cycle.component.css"]
+  styleUrls: ["./life-cycle.component.scss"]
 })
 export class LifeCycleComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterViewInit {
 

@@ -9,7 +9,7 @@ import { BugReportSystemService } from "../bug-report-system.service";
       {{results | json}}
     </pre>
   `,
-  styleUrls: ["./http-service.component.css"]
+  styleUrls: ["./http-service.component.scss"]
 })
 export class HttpServiceComponent implements OnInit {
 

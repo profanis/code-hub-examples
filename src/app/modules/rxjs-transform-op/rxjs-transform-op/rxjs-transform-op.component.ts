@@ -11,7 +11,7 @@ import { map, mergeAll, mergeMap, switchMap } from "rxjs/operators";
 @Component({
   selector: "app-rxjs-transform-op",
   templateUrl: "./rxjs-transform-op.component.html",
-  styleUrls: ["./rxjs-transform-op.component.css"]
+  styleUrls: ["./rxjs-transform-op.component.scss"]
 })
 export class RxjsTransformOpComponent implements AfterViewInit {
   @ViewChild("button")
