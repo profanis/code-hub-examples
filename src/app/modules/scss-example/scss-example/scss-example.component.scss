@@ -12,13 +12,11 @@ $primary-color: #333;
   text-align: center;
 }
 
-body {
-  font: 100% $font-stack;
-  color: $primary-color;
-}
-
 
 .parent {
+
+  font: 100% $font-stack;
+  color: $primary-color;
 
   @include upercase();
   @include box(red);
