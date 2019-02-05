@@ -36,12 +36,12 @@ export class ReactiveFormComponent implements OnInit, OnDestroy {
       lastName: new FormControl("", Validators.required),
       isExperienced: new FormControl("", Validators.required),
       angular: new FormControl("", Validators.required),
-      favouriteLanguage: new FormControl("", Validators.required),
+      favouriteLanguage: new FormControl(this.programmingLanguages[1], Validators.required),
       jsversion: new FormControl()
     });
 
     this.firstNameFormControlSubscription = this.firstNameFormControl.valueChanges.subscribe( (value: string) => {
-      // console.log(value);
+      console.log(value);
 
       this.firstNameFormControlErrorMessage = "";
 

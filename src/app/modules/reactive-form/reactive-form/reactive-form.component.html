@@ -45,7 +45,7 @@
     <br/>
     <select formControlName="favouriteLanguage">
       <option [ngValue]="null">Select</option>
-      <option *ngFor="let lang of programmingLanguages">
+      <option *ngFor="let lang of programmingLanguages" [ngValue]="lang">
         {{lang}}
       </option>
     </select>
