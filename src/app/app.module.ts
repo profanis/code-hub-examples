@@ -22,6 +22,7 @@ import { TeampltesDataBindingModule } from "./modules/teampltes-data-binding/tea
 import { VewChildModule } from "./modules/vew-child/vew-child.module";
 import { RxjsTransformOpModule } from "./modules/rxjs-transform-op/rxjs-transform-op.module";
 import { ScssExampleModule } from "./modules/scss-example/scss-example.module";
+import { ResolversModule } from "./modules/resolvers/resolvers.module";
 
 const appRoutes: Routes = [
   { path: "",  redirectTo: "/dashboard", pathMatch: "full" },
@@ -63,7 +64,8 @@ export function applicationModules(): any[] {
     RxjsOrdersModule,
     VewChildModule,
     RxjsTransformOpModule,
-    ScssExampleModule
+    ScssExampleModule,
+    ResolversModule
   ];
 }
 @NgModule({
