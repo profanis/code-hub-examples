@@ -26,24 +26,7 @@ import { ResolversModule } from './modules/resolvers/resolvers.module';
 
 const appRoutes: Routes = [
   { path: "",  redirectTo: "/dashboard", pathMatch: "full" },
-  // { path: "reactive-form",  loadChildren: "app/modules/reactive-form/reactive-form.module#MyReactiveFormModule" },
-  // { path: "basic-form",  loadChildren: "app/modules/basic-form/basic-form.module#BasicFormModule" },
-  // { path: "built-in-directives",  loadChildren: "app/modules/built-in-directives/built-in-directives.module#BuiltInDirectivesModule" },
-  // { path: "components-interaction",  loadChildren: "app/modules/components-interaction/components-interaction.module#ComponentsInteractionModule" },
-  // { path: "components-example",loadChildren: "app/modules/day-2-components-example/day-2-components-example.module#Day2ComponentsExampleModule" },
-  // { path: "basic-http-service",  loadChildren: "app/modules/http-service/http-service.module#HttpServiceModule" },
-  // { path: "life-cycle-example",  loadChildren: "app/modules/lifecycle-example/lifecycle-example.module#LifecycleExampleModule" },
-  // { path: "services-di",  loadChildren: "app/modules/services-di-example/services-di-example.module#ServicesDiExampleModule" },
-  // { path: "templates-binding",  loadChildren: "app/modules/teampltes-data-binding/teampltes-data-binding.module#TeampltesDataBindingModule" },
-  // {
-  //   path: "advanced-di",
-  //   loadChildren: "app/modules/advanced-di-example/advanced-di-example.module#AdvancedDiExampleModule"
-  // },
-  // {
-  //   path: "lazy",
-  //   loadChildren: "app/modules/lazy-load-guards/lazy-load-guards.module#LazyLoadGuardsModule",
-  //   canLoad: [BasicCanLoadGuard]
-  // }
+  { path: "lazy",  loadChildren: "app/modules/lazy/lazy.module#LazyModule" }
 ];
 
 
