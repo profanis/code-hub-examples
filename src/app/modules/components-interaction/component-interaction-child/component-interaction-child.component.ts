@@ -1,36 +1,30 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { OutputType } from "@angular/core/src/view";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: "app-component-interaction-child",
   template: `
-      <div style="border:1px solid red; margin-top:50px;padding: 20px;">
-        <h3>Child Component</h3>
-        <p>
-          The first name is : {{firstName}}
-        </p>
-        <button type="button" (click)="search()">Search</button>
-      </div>
+    <p>List items from child component</p>
+    <ul>
+      <li *ngFor="let item of items">
+        {{item}}
+      </li>
+    </ul>
+
+    <button type="button" (click)="allowParentToDisplayTheList()">Toggle the list</button>
+    <hr />
   `,
-  styleUrls: ["./component-interaction-child.component.scss"],
-  exportAs: "child"
+  styleUrls: ["./component-interaction-child.component.scss"]
 })
-export class ComponentInteractionChildComponent implements OnInit {
+export class ComponentInteractionChildComponent {
 
-  @Input() firstName: string;
-  @Output() doSearch = new EventEmitter();
+  @Input() items: string[];
+  @Output() displayTheList = new EventEmitter<boolean>();
 
-  lastName: string;
+  displayTheListFlag = false;
 
-  constructor() { }
-
-  ngOnInit() {
-    this.lastName = "this is a last name";
-  }
-
-
-  search() {
-    this.doSearch.emit();
+  allowParentToDisplayTheList() {
+    this.displayTheListFlag = !this.displayTheListFlag;
+    this.displayTheList.emit(this.displayTheListFlag);
   }
 
 }

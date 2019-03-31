@@ -1,30 +1,33 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
   selector: "app-component-interaction-parent",
   template: `
-      <h3>Parent Component</h3>
-      Enter your name:
-      <input type="text" [(ngModel)]="firstName">
+    <app-component-interaction-child [items]="getItems()" (displayTheList)="toggleDisplayList($event)">
+    </app-component-interaction-child>
 
-      <app-component-interaction-child #aname="child" [firstName]="firstName" (doSearch)="searchFromChild()">
-      </app-component-interaction-child>
-      {{aname.lastName}}
+    <div *ngIf="iCanDisplayTheList">
+      <p>List items from parent component</p>
+      <ul>
+        <li *ngFor="let item of items">
+          {{item}}
+        </li>
+      </ul>
+    </div>
   `,
   styleUrls: ["./component-interaction-parent.component.scss"]
 })
-export class ComponentInteractionParentComponent implements OnInit {
+export class ComponentInteractionParentComponent {
 
-  firstName: string;
+  items = ["one", "two", "three"];
+  iCanDisplayTheList = false;
 
-
-  constructor() { }
-
-  ngOnInit() {
+  getItems() {
+    return this.items;
   }
 
-  searchFromChild() {
-    console.log("Child component triggered the button!");
+  toggleDisplayList(event) {
+    this.iCanDisplayTheList = event;
   }
 
 }
