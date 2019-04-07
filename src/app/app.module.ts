@@ -24,6 +24,7 @@ import { RxjsTransformOpModule } from "./modules/rxjs-transform-op/rxjs-transfor
 import { ScssExampleModule } from "./modules/scss-example/scss-example.module";
 import { ResolversModule } from './modules/resolvers/resolvers.module';
 import { PipesModule } from './modules/pipes/pipes.module';
+import { RoutingModule } from './modules/routing/routing.module';
 
 const appRoutes: Routes = [
   { path: "",  redirectTo: "/dashboard", pathMatch: "full" },
@@ -50,7 +51,8 @@ export function applicationModules(): any[] {
     RxjsTransformOpModule,
     ScssExampleModule,
     ResolversModule,
-    PipesModule
+    PipesModule,
+    RoutingModule
   ];
 }
 @NgModule({
