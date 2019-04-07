@@ -6,7 +6,7 @@ import { CountriesService } from '../countries.service';
 @Component({
   selector: 'app-resolvers',
   templateUrl: './resolvers.component.html',
-  styleUrls: ['./resolvers.component.scss']
+  styles: [``]
 })
 export class ResolversComponent implements OnInit {
 
@@ -16,14 +16,14 @@ export class ResolversComponent implements OnInit {
               private countriesService: CountriesService) { }
 
   ngOnInit() {
-    // TODO Register the resolver in resolvers-routing.module.ts
-    // this.activatedRoute.data.subscribe(data => {
-    //   this.countries = data.countries;
-    // })
-
-    this.countriesService.getCountries().subscribe(data => {
-      this.countries = data;
+    this.activatedRoute.data.subscribe(data => {
+      this.countries = data.countries;
     })
+
+    // TODO remove the resolver from resolvers-routing.module.ts
+    // this.countriesService.getCountries().subscribe(data => {
+    //   this.countries = data;
+    // })
   }
 
 }
