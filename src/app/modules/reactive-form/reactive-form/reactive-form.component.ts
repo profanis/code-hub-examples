@@ -31,40 +31,15 @@ export class ReactiveFormComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.myForm = new FormGroup({
-      firstName: this.firstNameFormControl,
-      lastName: new FormControl("", Validators.required),
-      isExperienced: new FormControl("", Validators.required),
-      angular: new FormControl("", Validators.required),
-      favouriteLanguage: new FormControl(this.programmingLanguages[1], Validators.required),
-      jsversion: new FormControl()
-    });
+    this.buildForm();
 
-    this.firstNameFormControlSubscription = this.firstNameFormControl.valueChanges.subscribe( (value: string) => {
-      console.log(value);
+    this.firstNameHandler();
 
-      this.firstNameFormControlErrorMessage = "";
-
-      if ((this.firstNameFormControl.touched || this.firstNameFormControl.dirty) && this.firstNameFormControl.errors) {
-        this.firstNameFormControlErrorMessage =
-        Object.keys(this.firstNameFormControl.errors)
-        .map(c => this.firstNameFormControlValidationMessages[c]).join(" ");
-      }
-    });
-
-    this.favouriteLanguageSubscription = this.myForm.get("favouriteLanguage").valueChanges.subscribe(value => {
-      const jsVersionFormControl = this.myForm.get("jsversion");
-
-      if (value === "JS") {
-        jsVersionFormControl.setValidators(Validators.required);
-      } else {
-        jsVersionFormControl.clearValidators();
-      }
-      jsVersionFormControl.updateValueAndValidity();
-    });
+    this.favouriteLanguageHandler();
 
 
   }
+
 
 
   submit({value}: {value}) {
@@ -79,6 +54,45 @@ export class ReactiveFormComponent implements OnInit, OnDestroy {
     if (this.firstNameFormControlSubscription) {
       this.firstNameFormControlSubscription.unsubscribe();
     }
+  }
+
+  private firstNameHandler() {
+    // handle the changes of the firstName control
+    this.firstNameFormControlSubscription = this.firstNameFormControl.valueChanges.subscribe( (value: string) => {
+      console.log(value);
+
+      this.firstNameFormControlErrorMessage = "";
+
+      if ((this.firstNameFormControl.touched || this.firstNameFormControl.dirty) && this.firstNameFormControl.errors) {
+        this.firstNameFormControlErrorMessage = Object.keys(this.firstNameFormControl.errors)
+                                                  .map(c => this.firstNameFormControlValidationMessages[c]).join(" ");
+      }
+    });
+  }
+
+  private favouriteLanguageHandler() {
+    // handle the changes of the favouriteLangate control
+    this.favouriteLanguageSubscription = this.myForm.get("favouriteLanguage").valueChanges.subscribe(value => {
+      const jsVersionFormControl = this.myForm.get("jsversion");
+
+      if (value === "JS") {
+        jsVersionFormControl.setValidators(Validators.required);
+      } else {
+        jsVersionFormControl.clearValidators();
+      }
+      jsVersionFormControl.updateValueAndValidity();
+    });
+  }
+
+  private buildForm() {
+    this.myForm = new FormGroup({
+      firstName: this.firstNameFormControl,
+      lastName: new FormControl("", Validators.required),
+      isExperienced: new FormControl("", Validators.required),
+      angular: new FormControl("", Validators.required),
+      favouriteLanguage: new FormControl(null, Validators.required),
+      jsversion: new FormControl()
+    });
   }
 
 }

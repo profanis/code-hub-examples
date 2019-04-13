@@ -1,4 +1,4 @@
-<form #form="ngForm" class="form" (submit)="formSubmit(form)" [class.was-validated]="form.invalid && form.dirty">
+<form autocomplete="off" #form="ngForm" class="form" (submit)="formSubmit(form)" [class.was-validated]="form.invalid && form.dirty">
 
   <div class="form-row" [ngClass]="{'has-error': firstName.invalid && firstName.dirty}">
 
