@@ -25,6 +25,7 @@ import { ScssExampleModule } from "./modules/scss-example/scss-example.module";
 import { ResolversModule } from './modules/resolvers/resolvers.module';
 import { PipesModule } from './modules/pipes/pipes.module';
 import { RoutingModule } from './modules/routing/routing.module';
+import { UnitTestingModule } from './modules/unit-testing/unit-testing.module';
 
 const appRoutes: Routes = [
   { path: "",  redirectTo: "/dashboard", pathMatch: "full" },
@@ -52,7 +53,8 @@ export function applicationModules(): any[] {
     ScssExampleModule,
     ResolversModule,
     PipesModule,
-    RoutingModule
+    RoutingModule,
+    UnitTestingModule
   ];
 }
 @NgModule({

@@ -20,11 +20,11 @@ export class RxjsTransformOpComponent implements AfterViewInit {
   constructor() {}
 
   ngAfterViewInit(): void {
-    this.callBackHell();
+    // this.callBackHell();
     // this.higherOrder();
     // this.higherOrderMergeAll();
     // this.higherOrderMergeMap();
-    // this.higherOrderSwitchMap();
+    this.higherOrderSwitchMap();
   }
 
   private callBackHell() {
