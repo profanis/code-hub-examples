@@ -27,6 +27,7 @@ import { PipesModule } from './modules/pipes/pipes.module';
 import { RoutingModule } from './modules/routing/routing.module';
 import { UnitTestingModule } from './modules/unit-testing/unit-testing.module';
 import { MakeMeBoldOnHoverModule } from './modules/make-me-bold-on-hover/make-me-bold-on-hover.module';
+import { BuiltInPipesExerciseModule } from './modules/built-in-pipes-exercise/built-in-pipes-exercise.module';
 
 const appRoutes: Routes = [
   { path: "",  redirectTo: "/dashboard", pathMatch: "full" },
@@ -56,7 +57,8 @@ export function applicationModules(): any[] {
     PipesModule,
     RoutingModule,
     UnitTestingModule,
-    MakeMeBoldOnHoverModule
+    MakeMeBoldOnHoverModule,
+    BuiltInPipesExerciseModule
   ];
 }
 @NgModule({
